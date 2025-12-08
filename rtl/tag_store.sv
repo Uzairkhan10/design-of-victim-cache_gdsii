@@ -2,17 +2,17 @@ module tag_store #(parameter TAG_WIDTH = 4, NUM_WAYS = 4)(
 	input clk, rst_n,
 	
 	input logic write_en, read_en, lookup_en,
-	input logic [(TAG_WIDTH - 1) : 0] tag_in;
-	input logic [($clog2(NUM_WAYS) - 1) : 0] way_index_in;
+	input logic [(TAG_WIDTH - 1) : 0] tag_in,
+	input logic [($clog2(NUM_WAYS) - 1) : 0] way_index_in,
 	
 	output logic hit,
 	//output logic [(NUM_WAYS - 1) : 0] hit_ways_vector, //each bit index representing the way number
-	output logic [($clog2(NUM_WAYS) - 1) : 0] hit_way_index; //here index the way number
+	output logic [($clog2(NUM_WAYS) - 1) : 0] hit_way_index, //here index the way number
 	 
 	input logic valid_clear, dirty_set, dirty_clear,
 	
 	output logic valid_read, dirty_read,
-	output logic [(TAG_WIDTH - 1) : 0] tag_read,	
+	output logic [(TAG_WIDTH - 1) : 0] tag_read
 );
 		
 	logic [(TAG_WIDTH - 1) : 0] tag_array [(NUM_WAYS - 1) : 0];
