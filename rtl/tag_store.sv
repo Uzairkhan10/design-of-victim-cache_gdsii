@@ -12,7 +12,7 @@ module tag_store #(parameter TAG_WIDTH = 4, NUM_WAYS = 4)(
 	input logic valid_clear, dirty_set, dirty_clear,
 	
 	output logic valid_read, dirty_read,
-	output logic [(TAG_WIDTH - 1) : 0] tag_read
+	output logic [(TAG_WIDTH - 1) : 0] tag_read	
 );
 		
 	logic [(TAG_WIDTH - 1) : 0] tag_array [(NUM_WAYS - 1) : 0];
